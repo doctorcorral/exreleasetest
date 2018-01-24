@@ -11,6 +11,13 @@ defmodule RepoExample.MixProject do
       docs: [
 	main: "readme",
 	extras: ["README.md", "CHANGELOG.md"]
+      ],
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+	"coveralls": :test,
+	"coveralls.detail": :test,
+	"coveralls.post": :test,
+	"coveralls.html": :test
       ]
     ]
   end
@@ -27,7 +34,8 @@ defmodule RepoExample.MixProject do
     [
       {:ex_doc, "~> 0.18", only: :dev, runtime: false},
       {:junit_formatter, "~> 2.1", only: :test},
-      {:credo, "~> 0.8", only: [:dev, :test]}
+      {:credo, "~> 0.8", only: [:dev, :test]},
+      {:excoverall, "~> 0.8", only: :test}
     ]
   end
 end
